@@ -24,35 +24,53 @@ console.log(quadrato(5));
 // 3) Crea una funzione eseguiOperazione
 // Definisci una funzione eseguiOperazione che accetta tre parametri: due numeri e una funzione operatore (callback). La funzione deve eseguire l'operazione fornita sui due numeri.
 
-const moltiplica = (a, b) => a * b;
-function eseguiOperazione(a, b, operazione) {
-  return operazione(a, b);
-}
-console.log(eseguiOperazione(2, 5, moltiplica));
+// const moltiplica = (a, b) => a * b;
+// function eseguiOperazione(a, b, operazione) {
+//   return operazione(a, b);
+// }
+// console.log(eseguiOperazione(2, 5, moltiplica));
 
-// 4) Crea un generatore di funzioni creaTimer
-// Scrivi una funzione creaTimer che accetta un tempo (in ms) e restituisce una nuova funzione che avvia un setTimeout per stampare "Tempo scaduto!".
-function creaTimer(tempo) {
+// // 4) Crea un generatore di funzioni creaTimer
+// // Scrivi una funzione creaTimer che accetta un tempo (in ms) e restituisce una nuova funzione che avvia un setTimeout per stampare "Tempo scaduto!".
+// function creaTimer(tempo) {
+//   return function () {
+//     setTimeout(() => {
+//       console.log("Tempo scaduto!");
+//     }, tempo);
+//   };
+// }
+// creaTimer(3000)();
+
+// // 5) Crea una funzione stampaOgniSecondo con setInterval.
+// // Definisci una funzione che accetta un messaggio e lo stampa ogni secondo.
+
+// function stampaOgniSecondo(messaggio) {
+//   let count = 0;
+//   const interval = setInterval(() => {
+//     count++;
+//     console.log(messaggio);
+//     if (count === 10) {
+//       clearInterval(interval);
+//       console.log("stop!");
+//     }
+//   }, 1000);
+// }
+// stampaOgniSecondo("stampa ogni secondo");
+
+// 6) Crea un contatore automatico con setInterval
+// Definisci una funzione creaContatoreAutomatico che accetta un intervallo di tempo e restituisce una funzione che avvia un setInterval, incrementando un contatore e stampandolo.
+
+function creaContatoreAutomatico(tempo) {
   return function () {
-    setTimeout(() => {
-      console.log("Tempo scaduto!");
+    let count = 0;
+    const interval = setInterval(() => {
+      console.log(count++);
+      if(count === 10){
+        clearInterval(interval)
+        console.log("stop!")
+      }
     }, tempo);
   };
 }
-creaTimer(3000)();
 
-// 5) Crea una funzione stampaOgniSecondo con setInterval.
-// Definisci una funzione che accetta un messaggio e lo stampa ogni secondo.
-
-function stampaOgniSecondo(messaggio) {
-  let count = 0;
-  const interval = setInterval(() => {
-    count++;
-    console.log(messaggio);
-    if (count === 10) {
-      clearInterval(interval);
-      console.log("stop!");
-    }
-  }, 1000);
-}
-stampaOgniSecondo("stampa ogni secondo");
+creaContatoreAutomatico(1000)()
