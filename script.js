@@ -79,15 +79,13 @@
 // Scrivi una funzione eseguiEferma che accetta un messaggio, un tempo di avvio e un tempo di stop. Il messaggio deve essere stampato a intervalli regolari, ma si deve fermare dopo il tempo di stop.
 
 function eseguiEferma(messaggio, avvio, stop) {
-  let count = avvio;
-  const interval = setInterval(() => {
-    count++;
-    console.log(count)
-    console.log(messaggio);
-    if (count === stop) {
-      clearInterval(interval);
-      console.log("stop!");
-    }
-  }, 1000);
+  const intervalId = setInterval(()=>{
+    console.log(messaggio)
+  }, avvio)
+
+  setTimeout(()=>{
+    clearInterval(intervalId)
+    console.log("stop")
+  }, stop)
 }
-eseguiEferma("stampa ogni secondo", 5 , 10)
+eseguiEferma("stampa ogni secondo", 1000 , 5000)
