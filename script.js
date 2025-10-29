@@ -39,5 +39,20 @@ function creaTimer(tempo) {
     }, tempo);
   };
 }
+creaTimer(3000)();
 
-creaTimer(3000)()
+// 5) Crea una funzione stampaOgniSecondo con setInterval.
+// Definisci una funzione che accetta un messaggio e lo stampa ogni secondo.
+
+function stampaOgniSecondo(messaggio) {
+  let count = 0;
+  const interval = setInterval(() => {
+    count++;
+    console.log(messaggio);
+    if (count === 10) {
+      clearInterval(interval);
+      console.log("stop!");
+    }
+  }, 1000);
+}
+stampaOgniSecondo("stampa ogni secondo");
