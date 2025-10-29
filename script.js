@@ -12,14 +12,14 @@
 // console.log(somma(3, 6));
 
 // Quindi, riscrivi la funzione somma con la sintassi delle arrow functions.
-const somma = (a, b) => a + b;
-console.log(somma(3, 5));
+// const somma = (a, b) => a + b;
+// console.log(somma(3, 5));
 
-// 2 Crea una arrow function che calcola il quadrato di un numero.
-// Definisci una funzione chiamata quadrato che accetta un numero e restituisce il suo quadrato in una sola riga
+// // 2 Crea una arrow function che calcola il quadrato di un numero.
+// // Definisci una funzione chiamata quadrato che accetta un numero e restituisce il suo quadrato in una sola riga
 
-const quadrato = (a) => a * a;
-console.log(quadrato(5));
+// const quadrato = (a) => a * a;
+// console.log(quadrato(5));
 
 // 3) Crea una funzione eseguiOperazione
 // Definisci una funzione eseguiOperazione che accetta tre parametri: due numeri e una funzione operatore (callback). La funzione deve eseguire l'operazione fornita sui due numeri.
@@ -60,17 +60,34 @@ console.log(quadrato(5));
 // 6) Crea un contatore automatico con setInterval
 // Definisci una funzione creaContatoreAutomatico che accetta un intervallo di tempo e restituisce una funzione che avvia un setInterval, incrementando un contatore e stampandolo.
 
-function creaContatoreAutomatico(tempo) {
-  return function () {
-    let count = 0;
-    const interval = setInterval(() => {
-      console.log(count++);
-      if(count === 10){
-        clearInterval(interval)
-        console.log("stop!")
-      }
-    }, tempo);
-  };
-}
+// function creaContatoreAutomatico(tempo) {
+//   return function () {
+//     let count = 0;
+//     const interval = setInterval(() => {
+//       console.log(count++);
+//       if (count === 10) {
+//         clearInterval(interval);
+//         console.log("stop!");
+//       }
+//     }, tempo);
+//   };
+// }
 
-creaContatoreAutomatico(1000)()
+// creaContatoreAutomatico(1000)();
+
+// 7) Crea una funzione che ferma un timer dopo un certo tempo
+// Scrivi una funzione eseguiEferma che accetta un messaggio, un tempo di avvio e un tempo di stop. Il messaggio deve essere stampato a intervalli regolari, ma si deve fermare dopo il tempo di stop.
+
+function eseguiEferma(messaggio, avvio, stop) {
+  let count = avvio;
+  const interval = setInterval(() => {
+    count++;
+    console.log(count)
+    console.log(messaggio);
+    if (count === stop) {
+      clearInterval(interval);
+      console.log("stop!");
+    }
+  }, 1000);
+}
+eseguiEferma("stampa ogni secondo", 5 , 10)
